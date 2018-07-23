@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>DOM遍历2</title>
+<script>
+
+
+</script>
+</head>
+<body>
+<div id="div1">
+	<ul>
+		<li>I am kylincat</li>
+		<li>我正在学习前端</li>
+		<li>现在在学习遍历dom</li>
+	</ul>
+	<p>my english name is <b>kylincat </b></p>
+</div>
+	
+
+
+<script>
+	var div=document.getElementById("div1");
+
+	var iterator = document.createNodeIterator(div,NodeFilter.SHOW_ELEMENT,null,false);
+	var node = iterator.nextNode();//向前前进一步
+	//当node的值不等于null，就继续循环体，之后再判断node是否为null，这样往返不断，直到node等于null（即已经访问到最后一个节点了）
+	while(node !== null) {
+		console.log(node.tagName);
+		node = iterator.nextNode();//访问最后一个节点后，nextNode会返回null
+	}
+</script>
+</body>
+</html>

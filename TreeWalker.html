@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>DOM遍历2</title>
+<script>
+
+
+</script>
+</head>
+<body>
+<div>
+	<ul>
+		<li>I am kylincat</li>
+		<li>我正在学习前端</li>
+		<li>现在在学习遍历dom</li>
+	</ul>
+	<p>my english name is <b>kylincat </b></p>
+</div>
+	
+
+
+<script>
+	var iterate = document.createTreeWalker(document,NodeFilter.SHOW_ELEMENT,null,false);
+	console.log(iterate.lastChild());//走到html标签
+	console.log(iterate.lastChild());//此时root为html，所以输出body
+	console.log(iterate.firstChild());//此时root为body，所以输出div
+	console.log(iterate.nextSibling());//此时root为div，所以下一个兄弟是script
+	//TreeWalker类型顾名思义就是在DOM树行走，行走到哪里都行，走到哪里就以哪里为根节点（root）
+</script>
+</body>
+</html>
